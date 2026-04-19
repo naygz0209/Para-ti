@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blush Rose & Cream</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <header class="hero">
+    
+  <!-- div class="hero-overlay"></div>-->
+    <div class="hero-content">
+      <!--<p class="mini-text">Hay momentos que cambian todo</p>-->
+      <h1>Nuestra historia merece un nuevo capítulo<br>
+          <span>y hoy quiero comenzar a escribirlo contigo</span></h1>
+      <p class="hero-description">Pero antes de seguir… hay algo que tengo que decirte</p>
+      <a href="#music-section" class="btn-principal">Ver página</a>
+    </div>
+  </header>
+
+
+  <!-- SECCIÓN 2: TOCADISCOS + CANCIÓN -->
+<section id ="music-section" class="section music-section">
+  <div class="music-text">
+    <p class="section-tag"> Escúchalo </p>
+    <h2>Eres todo lo que estaba buscando</h2>
+    <p>
+      “Siempre he creído que la música puede decir cosas que a veces las palabras no alcanzan…<br>
+y aunque intenté explicarte lo que siento, no haye mejor manera que esta.<br><br>
+
+Pero esta canción… se acerca mucho a todo lo que me haces sentir.”
+    </p>
+
+    <div class="music-controls">
+      <button id="playButton" class="play-btn">▶ Reproducir</button>
+    </div>
+
+    <audio id="musicPlayer">
+      <source src="assets/audio/cancion.mp3" type="audio/mpeg">
+      Tu navegador no soporta el audio.
+    </audio>
+  </div>
+
+  <div class="turntable-container">
+    <div class="turntable" id="turntable">
+      <div class="platter">
+        <div class="record">
+          <div class="record-rings"></div>
+          <div class="record-center"></div>
+          <div class="record-pin"></div>
+        </div>
+      </div>
+
+      <div class="tonearm-base"></div>
+
+      <div class="tonearm">
+        <div class="tonearm-head"></div>
+      </div>
+
+      <div class="knob knob-left"></div>
+      <div class="slider"></div>
+      <div class="control-box"></div>
+      <div class="knob knob-right"></div>
+    </div>
+  </div>
+</section>
+
+  <!-- SECCIÓN 3: VIDEO -->
+  <section class="section video-section">
+    <div class="video-text">
+      <p class="section-tag">Miralo</p>
+      <h2>Hay algo que necesito decirte…</h2>
+      <p>
+       “Porque todo lo que hemos vivido… me llevó a querer escribir el siguiente capítulo contigo”
+      </p>
+    </div>
+
+    <div class="video-frame">
+  <iframe 
+    width="100%" 
+    height="500"
+    src="https://www.youtube.com/embed/FHJYA_Os48E"
+    title="Video"
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
+  </section>
+
+    </section>
+
+  <footer class="footer">
+  </footer>
+
+  <script>
+    const playButton = document.getElementById("playButton");
+    const musicPlayer = document.getElementById("musicPlayer");
+    const turntable = document.getElementById("turntable");
+
+    playButton.addEventListener("click", () => {
+      if (musicPlayer.paused) {
+        musicPlayer.play();
+        turntable.classList.add("playing");
+        playButton.textContent = "⏸ Pausar";
+      } else {
+        musicPlayer.pause();
+        turntable.classList.remove("playing");
+        playButton.textContent = "▶ Reproducir";
+      }
+    });
+
+
+    musicPlayer.addEventListener("ended", () => {
+      turntable.classList.remove("playing");
+      playButton.textContent = "▶ Reproducir";
+    });
+  </script>
+</body>
+</html>
